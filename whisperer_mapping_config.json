@@ -1,0 +1,91 @@
+{
+  "sheet_name": "Issues Tracker",
+  "required_fields": {
+    "inc_number": {
+      "columns": [
+        "INC # / ADO #",
+        "ID"
+      ],
+      "fallback": "row_number",
+      "prefix": "DREAM-ROW-"
+    },
+    "inc_state": "Re-assigned",
+    "inc_sys_created_on": "Date Reported",
+    "inc_sys_updated_on": "Resolution Date",
+    "inc_resolved_at": "Resolution Date"
+  },
+  "optional_fields": {
+    "inc_short_description": "Issue Description",
+    "inc_description": "Issue Description",
+    "inc_u_client": "Reported By",
+    "inc_assigned_to": "Assigned To",
+    "inc_resolved_by": "Assigned To",
+    "inc_assignment_group": "Region / process",
+    "inc_close_notes": "Final Resolution & Rationale",
+    "inc_priority": "Priority",
+    "inc_impact": null,
+    "inc_urgency": null,
+    "inc_u_incident_summary": null
+  },
+  "date_fields": {
+    "fields": [
+      "inc_sys_created_on",
+      "inc_sys_updated_on",
+      "inc_resolved_at"
+    ],
+    "input_order": "auto",
+    "output_format": "%d/%m/%Y %H:%M:%S",
+    "input_formats": [
+      "%m/%d/%Y",
+      "%m/%d/%Y %H:%M:%S",
+      "%m/%d/%y",
+      "%m/%d/%y %H:%M:%S",
+      "%d/%m/%Y",
+      "%d/%m/%Y %H:%M:%S",
+      "%d/%m/%y",
+      "%d/%m/%y %H:%M:%S",
+      "%Y-%m-%d %H:%M:%S",
+      "%Y-%m-%d",
+      "%d-%b-%Y",
+      "%d-%B-%Y",
+      "%b-%d-%Y",
+      "%B-%d-%Y"
+    ],
+    "field_overrides": {},
+    "ambiguous_date_order": "mdy",
+    "on_parse_error": "fail"
+  },
+  "comments_worknotes": {
+    "output_field": "inc_comments_and_work_notes",
+    "sort_chronologically": true,
+    "date_output_format": "%d/%m/%Y %H:%M:%S",
+    "timestamp_input_order": "mdy",
+    "text_fields": [
+      {
+        "column": "Action Steps",
+        "label": "Action Steps"
+      },
+      {
+        "column": "Final Resolution & Rationale",
+        "label": "Final Resolution"
+      }
+    ]
+  },
+  "static_fields": {
+    "Client": "DREAM",
+    "Source": "Excel",
+    "input_file_name": "__INPUT_FILE__",
+    "imported_at": "__NOW__",
+    "import_batch_id": "__BATCH_ID__"
+  },
+  "deduplicate_by_inc_number": true,
+  "deduplicate_keep_latest_by": "inc_sys_updated_on",
+  "output_top_level_key": "result",
+  "skip_empty_rows": true,
+  "empty_row_required_any_of": [
+    "inc_number",
+    "inc_short_description",
+    "inc_description",
+    "inc_comments_and_work_notes"
+  ]
+}
